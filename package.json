@@ -1,0 +1,41 @@
+{
+  "name": "ts-redacted-logger",
+  "version": "1.0.0",
+  "description": "A tiny console.log wrapper that keeps your credentials out of your logs.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test test/*.test.ts",
+    "prepare": "npm run build",
+    "example": "npm run build && node examples/basic.mjs && node examples/basic.cjs"
+  },
+  "keywords": [
+    "logger",
+    "redact",
+    "secrets",
+    "credentials",
+    "console",
+    "mask"
+  ],
+  "license": "MIT",
+  "sideEffects": false,
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "typescript": "^7.0.2"
+  }
+}

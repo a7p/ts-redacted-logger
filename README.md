@@ -1,5 +1,7 @@
 # ts-redacted-logger
 
+[![CI](https://github.com/a7p/ts-redacted-logger/actions/workflows/ci.yml/badge.svg)](https://github.com/a7p/ts-redacted-logger/actions/workflows/ci.yml)
+
 > A tiny `console.log` wrapper that keeps your credentials out of your logs.
 
 Give it your secrets once. Log like you always do. They never reach the output.
@@ -128,6 +130,13 @@ npm install
 npm test        # node:test, runs the TypeScript sources directly
 npm run build   # emits dist/
 ```
+
+## Releasing
+
+1. Bump the version: `npm version patch` (or `minor` / `major`), then push the commit and tag.
+2. Create a GitHub release for that tag. The **Release** workflow tests the package and publishes it to npm with provenance.
+
+Publishing uses npm trusted publishing, so no token is stored in GitHub. Set it up once on npmjs.com under the package's settings: *Trusted publishing → GitHub Actions*, repository `a7p/ts-redacted-logger`, workflow `release.yml`. The very first publish has to be done by hand (`npm publish`), because the package must exist before trusted publishing can be configured.
 
 ## License
 
